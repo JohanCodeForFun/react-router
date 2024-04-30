@@ -3,24 +3,17 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Profile from './profile.jsx'
-import Popeye from './Popeye.jsx'
-import Spinach from './Spinach.jsx'
-import './index.css'
-import DefaultProfile from './DefaultProfile.jsx'
+import ErrorPage from './NotFound.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    errorElement: <ErrorPage />
   },
   {
-    path: 'profile',
+    path: 'profile/:name',
     element: <Profile />,
-    children: [
-      { index: true, element: <DefaultProfile /> },
-      { path: "spinach", element: <Spinach /> },
-      { path: "popeye", element: <Popeye /> },
-    ]
   }
 ])
 
